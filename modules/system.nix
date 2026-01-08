@@ -90,6 +90,7 @@
   users.users.${username} = {
     isNormalUser = true;
     description = username;
+    shell = pkgs.zsh;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -108,6 +109,7 @@
     cifs-utils
     curl
   ];
+  programs.zsh.enable = true;
 
   # Configure neovim as the default editor
   programs.neovim = {

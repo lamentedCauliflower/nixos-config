@@ -10,5 +10,12 @@
     mesa
     vulkan-tools
     gh
+    cargo
+    sqlx-cli
+    rust-analyzer
+    wasm
+    wasm-pack
+    prettier
+
   ];
 }

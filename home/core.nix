@@ -16,7 +16,10 @@
     # changes in each release.
     stateVersion = "25.11";
 
-    sessionVariables.DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
+    sessionVariables = {
+      DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
+
+    };
   };
 
   # Let Home Manager install and manage itself.
@@ -43,4 +46,22 @@
       "x-scheme-handler/unknown" = "librewolf.desktop";
     };
   };
+
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [
+        "gh"
+        "git"
+        "z"
+        "sudo"
+        "docker"
+        "docker-compose"
+        "rust"
+      ];
+    };
+  };
+
 }
