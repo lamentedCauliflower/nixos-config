@@ -16,6 +16,6 @@
     wasm
     wasm-pack
     prettier
-
+    qt6.qtdeclarative
   ];
 }

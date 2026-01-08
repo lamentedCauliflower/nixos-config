@@ -22,7 +22,10 @@
     hyprpaper
     hyprcursor
     playerctl
+    quickshell
   ];
+
+  qt.enable = true;
 
   services.displayManager.ly.enable = true;
 }
