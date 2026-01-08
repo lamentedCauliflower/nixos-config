@@ -16,6 +16,19 @@
     "flakes"
   ];
 
+  # Disable NetworkManager's internal DNS resolution
+  networking.networkmanager.dns = "none";
+
+  # These options are unnecessary when managing DNS ourselves
+  networking.useDHCP = false;
+  networking.dhcpcd.enable = false;
+
+  networking.nameservers = [
+    "192.168.0.110"
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 
