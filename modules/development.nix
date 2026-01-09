@@ -17,5 +17,6 @@
     wasm-pack
     prettier
     qt6.qtdeclarative
+    ffmpeg-full
   ];
 }

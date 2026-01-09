@@ -64,4 +64,13 @@
     };
   };
 
+  services.jellyfin-mpv-shim = {
+    enable = true;
+    settings = {
+      player_name = "NixOS Mpv Shim";
+      check_updates = false;
+      notify_updates = false;
+    };
+  };
+
 }

@@ -6,7 +6,7 @@
     settings = {
 
       exec-once = [
-        "pkill hyprlauncher && hyprlauncher"
+        "pkill hyprlauncher; hyprlauncher -d"
       ];
 
       monitor = [
