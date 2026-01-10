@@ -33,6 +33,11 @@
       "privacy.clearOnShutdown.cookies" = false;
       "network.cookie.lifetimePolicy" = 0;
     };
+    profiles = {
+      isaac = {
+        isDefault = true;
+      };
+    };
   };
 
   xdg.mimeApps = {
@@ -72,5 +77,15 @@
       notify_updates = false;
     };
   };
+
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/deep-oceanic-next.yaml";
+    targets.librewolf.profileNames = [ "isaac" ];
+  };
+
+  programs.kitty.enable = true;
+  programs.keepassxc.enable = true;
+  programs.zed-editor.enable = true;
 
 }

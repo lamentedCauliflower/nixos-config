@@ -5,6 +5,7 @@
     packages = with pkgs; [
       heroic
       moonlight-qt
+      prismlauncher
     ];
   };
 
@@ -21,5 +22,7 @@
         FixYoutubeEmbeds.enabled = true;
       };
     };
+
   };
+
 }

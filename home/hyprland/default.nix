@@ -5,16 +5,18 @@
 
     settings = {
 
-      exec-once = [
+      exec = [
         "pkill hyprlauncher; hyprlauncher -d"
       ];
 
+      # Set Monitors
       monitor = [
         "eDP-1, 1920x1080@60, 0x0, 1, cm, auto"
         "DP-2, 1920x1080@60, 1920x0, 1, cm, auto"
         "DP-4, 1920x1080@60, 3840x0, 1, cm, auto"
       ];
 
+      # Application Environment variables
       "$terminal" = "kitty";
       "$menu" = "hyprlauncher";
 
@@ -22,8 +24,6 @@
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
@@ -39,7 +39,6 @@
           enabled = true;
           range = 4;
           render_power = 3;
-          color = "rgba(1a1a1aee)";
         };
 
         blur = {
@@ -48,6 +47,8 @@
           passes = 1;
           vibrancy = 0.1696;
         };
+
+        # Color Settings Configured by stylix
       };
 
       animations = {
@@ -83,6 +84,7 @@
       workspace = [
         "w[tv1], gapsout:0, gapsin:0"
         "f[1], gapsout:0, gapsin:0"
+        #  Set workspaces for each monitor
         "1, monitor:eDP-1, default:true"
         "2, monitor:eDP-1"
         "3, monitor:eDP-1"
@@ -104,8 +106,8 @@
       ];
 
       windowrulev2 = [
-        "monitor DP-2, class:^(?i)zed$"
-        "monitor DP-4, class:^(?i)librewolf$"
+        "monitor DP-2, class:(?i)zed"
+        "monitor DP-4, class:(?i)librewolf"
       ];
 
       dwindle = {
