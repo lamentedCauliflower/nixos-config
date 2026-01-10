@@ -9,6 +9,11 @@
         "pkill hyprlauncher; hyprlauncher -d"
       ];
 
+      cursor = {
+        no_hardware_cursors = 1;
+        enable_hyprcursor = true;
+      };
+
       # Set Monitors
       monitor = [
         "eDP-1, 1920x1080@60, 0x0, 1, cm, auto"
@@ -132,6 +137,7 @@
         kb_rules = "";
         follow_mouse = 0;
         sensitivity = 0;
+        force_no_accel = 0;
         touchpad = {
           natural_scroll = false;
         };
@@ -210,6 +216,7 @@
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
       ];
+
     };
   };
 

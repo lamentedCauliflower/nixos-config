@@ -182,6 +182,4 @@
 
   networking.firewall.enable = false;
 
-  programs.gamemode.enable = true;
-
 }
