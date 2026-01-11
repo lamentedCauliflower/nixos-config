@@ -14,6 +14,12 @@
   boot.loader = {
     limine = {
       enable = true;
+      extraEntries = ''
+        /Windows Boot Manager
+            comment: Chainload the EFI loader on the second NVMe
+            protocol: efi
+            path: guid(38d503da-d75e-43e1-ab43-0751700db854):/EFI/Microsoft/Boot/bootmgfw.efi
+      '';
     };
     efi = {
       canTouchEfiVariables = true;
