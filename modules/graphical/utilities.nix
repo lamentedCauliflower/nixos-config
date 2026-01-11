@@ -9,5 +9,6 @@
     keepassxc
     mpv
     qbittorrent
+    qpwgraph
   ];
 }

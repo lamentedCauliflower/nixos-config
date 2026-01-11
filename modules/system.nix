@@ -107,6 +107,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "pipewire"
     ];
   };
   # given the users in this list the right to specify additional substituters via:
@@ -161,6 +162,18 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    systemWide = true;
+    extraConfig = {
+      pipewire-pulse."20-upmix" = {
+        "stream.properties" = {
+          "channelmix.upmix" = true;
+          "channelmix.upmix-method" = "psd";
+          "channelmix.lfe-cutoff" = 200;
+          "channelmix.fc-cutoff" = 12000;
+          "channelmix.rear-delay" = 12.0;
+        };
+      };
+    };
   };
 
   # For mount.cifs, required unless domain name resolution is not needed.

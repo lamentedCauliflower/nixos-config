@@ -24,6 +24,7 @@
     efi = {
       canTouchEfiVariables = true;
     };
+
   };
 
   networking.hostName = "yuro-nixos"; # Define your hostname.
@@ -46,5 +47,7 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
+
+  services.pipewire.extraConfig.pipewire."30-5_1-to-4_1-Mixer" = import ./pipewire-5_1-to-4_1.nix;
 
 }
