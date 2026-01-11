@@ -6,7 +6,7 @@ in
     {
       name = "libpipewire-module-filter-chain";
       args = {
-        "node.description" = "5.1 to 4.1 crossover sink";
+        "node.description" = "5.1 to 4.1 crossover sink also swaps SL and SR";
         "media.name" = "5.1 to 4.1 crossover sink";
         "filter.graph" = {
           nodes = [
@@ -225,11 +225,11 @@ in
             }
             {
               output = "hpSL:Out";
-              input = "outSL:In";
+              input = "outSR:In";
             }
             {
               output = "hpSR:Out";
-              input = "outSR:In";
+              input = "outSL:In";
             }
 
             {
