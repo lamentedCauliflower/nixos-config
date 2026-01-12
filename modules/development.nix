@@ -19,7 +19,16 @@
     prettier
     qt6.qtdeclarative
     ffmpeg-full
+    clippy
+    rustfmt
+    cmake
+    gcc
+    openssl
+    pkg-config
+    rust-bindgen
+    rustc
   ];
+  environment.variables."PKG_CONFIG_PATH" = "${pkgs.openssl.dev}/lib/pkgconfig";
 
   virtualisation.docker = {
     enable = true;

@@ -73,7 +73,6 @@
         "docker"
         "docker-compose"
         "rust"
-        "nix"
       ];
     };
   };
