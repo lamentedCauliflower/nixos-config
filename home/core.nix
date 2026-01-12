@@ -66,13 +66,14 @@
       enable = true;
       theme = "robbyrussell";
       plugins = [
-        "gh"
+        "github"
         "git"
         "z"
         "sudo"
         "docker"
         "docker-compose"
         "rust"
+        "nix"
       ];
     };
   };

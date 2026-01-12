@@ -1,5 +1,6 @@
 {
   pkgs,
+  username,
   ...
 }:
 
@@ -19,4 +20,9 @@
     qt6.qtdeclarative
     ffmpeg-full
   ];
+
+  virtualisation.docker = {
+    enable = true;
+  };
+  users.users.${username}.extraGroups = [ "docker" ];
 }
