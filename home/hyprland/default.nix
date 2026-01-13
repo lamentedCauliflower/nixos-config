@@ -5,10 +5,6 @@
 
     settings = {
 
-      exec = [
-        "pkill hyprlauncher; hyprlauncher -d"
-      ];
-
       cursor = {
         no_hardware_cursors = 1;
         enable_hyprcursor = true;
@@ -23,7 +19,7 @@
 
       # Application Environment variables
       "$terminal" = "kitty";
-      "$menu" = "hyprlauncher";
+      "$menu" = "rofi -show drun";
 
       general = {
         gaps_in = 5;
@@ -226,5 +222,7 @@
       "gtk"
     ];
   };
+
+  programs.rofi.enable = true;
 
 }

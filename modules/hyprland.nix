@@ -27,6 +27,7 @@
     xdg-desktop-portal-hyprland
     xdg-desktop-portal-gtk
     gtk3
+    rofi
   ];
 
   qt.enable = true;
