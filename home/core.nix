@@ -92,6 +92,8 @@
     targets.librewolf.profileNames = [ "isaac" ];
   };
 
+  services.kdeconnect.enable = true;
+
   programs.kitty.enable = true;
   programs.keepassxc.enable = true;
   programs.zed-editor.enable = true;

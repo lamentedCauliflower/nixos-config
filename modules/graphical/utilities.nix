@@ -11,4 +11,6 @@
     qbittorrent
     qpwgraph
   ];
+
+  programs.kdeconnect.enable = true;
 }
