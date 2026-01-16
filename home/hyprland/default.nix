@@ -233,7 +233,10 @@
   programs.waybar = {
     enable = true;
     settings.main = {
-      modules-right = [ "clock" ];
+      modules-right = [
+        "mpd"
+        "clock"
+      ];
       modules-left = [ "hyprland/workspaces" ];
     };
   };
