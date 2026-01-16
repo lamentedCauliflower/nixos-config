@@ -11,6 +11,10 @@
       url = "github:nix-community/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -19,6 +23,7 @@
       nixpkgs,
       home-manager,
       stylix,
+      nur,
       ...
     }:
     {
@@ -56,6 +61,7 @@
               ./modules/graphical/utilities.nix
               ./modules/graphical/gaming.nix
               stylix.nixosModules.stylix
+              nur.modules.nixos.default
 
               home-manager.nixosModules.home-manager
               {

@@ -10,6 +10,10 @@
         enable_hyprcursor = true;
       };
 
+      exec-once = [
+        "waybar"
+      ];
+
       # Set Monitors
       monitor = [
         "eDP-1, 1920x1080@60, 0x0, 1, cm, auto"
@@ -86,15 +90,15 @@
         "w[tv1], gapsout:0, gapsin:0"
         "f[1], gapsout:0, gapsin:0"
         #  Set workspaces for each monitor
-        "1, monitor:eDP-1, default:true"
-        "2, monitor:eDP-1"
-        "3, monitor:eDP-1"
-        "4, monitor:DP-2, default:true"
-        "5, monitor:DP-2"
-        "6, monitor:DP-2"
-        "7, monitor:DP-4, default:true"
-        "8, monitor:DP-4"
-        "9, monitor:DP-4"
+        "1, monitor:eDP-1, default:true, persistent:true"
+        "2, monitor:eDP-1, persistent:true"
+        "3, monitor:eDP-1, persistent:true"
+        "4, monitor:DP-2, default:true, persistent:true"
+        "5, monitor:DP-2, persistent:true"
+        "6, monitor:DP-2, persistent:true"
+        "7, monitor:DP-4, default:true, persistent:true"
+        "8, monitor:DP-4, persistent:true"
+        "9, monitor:DP-4, persistent:true"
       ];
 
       windowrule = [
@@ -160,6 +164,7 @@
         "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo"
         "$mainMod, J, togglesplit"
+        "$mainMod, F, fullscreen"
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up, workspace, r+1"
@@ -224,5 +229,13 @@
   };
 
   programs.rofi.enable = true;
+
+  programs.waybar = {
+    enable = true;
+    settings.main = {
+      modules-right = [ "clock" ];
+      modules-left = [ "hyprland/workspaces" ];
+    };
+  };
 
 }

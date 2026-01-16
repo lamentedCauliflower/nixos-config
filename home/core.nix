@@ -36,6 +36,15 @@
     profiles = {
       isaac = {
         isDefault = true;
+        extensions = {
+          packages = with pkgs.nur.repos.rycee.firefox-addons; [
+            # indexed at https://nur.nix-community.org/repos/rycee/
+            sponsorblock
+            dearrow
+            return-youtube-dislikes
+            tampermonkey
+          ];
+        };
       };
     };
   };
