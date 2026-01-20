@@ -50,4 +50,5 @@
 
   services.pipewire.extraConfig.pipewire."30-5_1-to-4_1-Mixer" = import ./pipewire-5_1-to-4_1.nix;
 
+  hardware.xpadneo.enable = true;
 }
