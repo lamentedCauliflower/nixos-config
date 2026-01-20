@@ -58,6 +58,13 @@
       "x-scheme-handler/https" = "librewolf.desktop";
       "x-scheme-handler/about" = "librewolf.desktop";
       "x-scheme-handler/unknown" = "librewolf.desktop";
+      "audio/mpeg" = "mpv.desktop";
+      "audio/flac" = "mpv.desktop";
+      "audio/vnd.wav" = "mpv.desktop";
+      "audio/ogg" = "mpv.desktop";
+      "audio/opus" = "mpv.desktop";
+      "video/mp4" = "mpv.desktop";
+
     };
   };
 
