@@ -122,6 +122,7 @@
     wget
     cifs-utils
     curl
+    timer
   ];
   programs.zsh.enable = true;
 

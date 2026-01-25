@@ -60,6 +60,7 @@
               ./modules/graphical/browsers.nix
               ./modules/graphical/utilities.nix
               ./modules/graphical/gaming.nix
+              ./modules/graphical/design.nix
               stylix.nixosModules.stylix
               nur.modules.nixos.default
 
