@@ -27,6 +27,8 @@
     pkg-config
     rust-bindgen
     rustc
+    trunk
+    cargo-generate
   ];
   environment.variables."PKG_CONFIG_PATH" = "${pkgs.openssl.dev}/lib/pkgconfig";
 
