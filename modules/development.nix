@@ -31,7 +31,8 @@
     cargo-generate
     lld
     cursor-cli
-    opencode
+    jq
+    # opencode
   ];
   environment.variables."PKG_CONFIG_PATH" = "${pkgs.openssl.dev}/lib/pkgconfig";
 

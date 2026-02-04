@@ -15,6 +15,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    opencode = {
+      url = "github:anomalyco/opencode/dev";
+    };
   };
 
   outputs =
@@ -24,6 +28,7 @@
       home-manager,
       stylix,
       nur,
+      opencode,
       ...
     }:
     {
@@ -46,7 +51,10 @@
         yuro-nixos =
           let
             username = "isaac";
-            specialArgs = { inherit username; };
+            specialArgs = {
+              inherit username;
+            }
+            // inputs;
           in
           nixpkgs.lib.nixosSystem {
             inherit specialArgs;

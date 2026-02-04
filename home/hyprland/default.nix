@@ -1,5 +1,19 @@
-{ ... }:
+{ config, ... }:
+let
+  wallpaperPath = "${config.home.homeDirectory}/.config/hypr/wallpaper.png";
+in
 {
+  # Copy wallpaper to hypr config directory
+  xdg.configFile."hypr/wallpaper.png".source = ../assets/wallpaper.png;
+
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [ wallpaperPath ];
+      wallpaper = [ ", ${wallpaperPath}" ];
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -125,8 +139,8 @@
       };
 
       misc = {
-        force_default_wallpaper = -1;
-        disable_hyprland_logo = false;
+        force_default_wallpaper = 0;
+        disable_hyprland_logo = true;
       };
 
       input = {

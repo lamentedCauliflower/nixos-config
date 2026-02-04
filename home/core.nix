@@ -1,4 +1,8 @@
-{ pkgs, username, ... }:
+{
+  pkgs,
+  username,
+  ...
+}:
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -18,7 +22,9 @@
 
     sessionVariables = {
       DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
-
+      CONTEXT7_API_KEY = pkgs.lib.strings.removeSuffix "\n" (
+        builtins.readFile ../secrets/CONTEXT7_API_KEY
+      );
     };
   };
 
