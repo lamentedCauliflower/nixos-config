@@ -26,6 +26,7 @@ in
 
       exec-once = [
         "waybar"
+        "hyprpaper"
       ];
 
       # Set Monitors
