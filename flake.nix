@@ -17,7 +17,7 @@
     };
 
     opencode = {
-      url = "github:anomalyco/opencode/dev";
+      url = "github:anomalyco/opencode/v1.1.53";
     };
   };
 
@@ -31,6 +31,12 @@
       opencode,
       ...
     }:
+    let
+      # Allow unfree packages globally
+      pkgsConfig = {
+        allowUnfree = true;
+      };
+    in
     {
       nixosConfigurations = {
 
@@ -41,8 +47,8 @@
           in
           nixpkgs.lib.nixosSystem {
             inherit specialArgs;
-            system = "x86_64-linux";
             modules = [
+              { nixpkgs.config = pkgsConfig; }
               ./hosts/luna-nixos
               ./modules/system.nix
             ];
@@ -58,8 +64,8 @@
           in
           nixpkgs.lib.nixosSystem {
             inherit specialArgs;
-            system = "x86_64-linux";
             modules = [
+              { nixpkgs.config = pkgsConfig; }
               ./hosts/yuro-nixos
               ./modules/system.nix
               ./modules/hyprland.nix

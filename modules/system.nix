@@ -7,9 +7,6 @@
 }:
 
 {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # Enable experimental Flakes and Nix CLI features
   nix.settings.experimental-features = [
     "nix-command"
