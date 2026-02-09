@@ -120,4 +120,15 @@
   programs.keepassxc.enable = true;
   programs.zed-editor.enable = true;
 
+  services.syncthing = {
+    enable = true;
+    # Optional: GUI credentials (can be set in the browser instead)
+    settings.gui = {
+      user = "isaac";
+      password = pkgs.lib.strings.removeSuffix "\n" (
+        builtins.readFile ../secrets/SYNCTHING_GUI_PASSWORD
+      );
+    };
+  };
+
 }
