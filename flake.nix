@@ -91,6 +91,44 @@
               }
             ];
           };
+
+        cleo-nixos =
+          let
+            username = "isaac";
+            specialArgs = {
+              inherit username;
+            }
+            // inputs;
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
+            modules = [
+              { nixpkgs.config = pkgsConfig; }
+              ./hosts/cleo-nixos
+              ./modules/system.nix
+              ./modules/hyprland.nix
+              ./modules/development.nix
+              ./modules/graphical/development.nix
+              ./modules/graphical/browsers.nix
+              ./modules/graphical/utilities.nix
+              ./modules/graphical/gaming.nix
+              ./modules/graphical/design.nix
+              stylix.nixosModules.stylix
+              nur.modules.nixos.default
+
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {
+                  device = "desktop";
+                }
+                // inputs
+                // specialArgs;
+                home-manager.users.${username} = import ./users/${username}/home.nix;
+              }
+            ];
+          };
       };
     };
 }
