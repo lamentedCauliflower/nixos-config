@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, device, ... }:
 let
   wallpaperPath = "${config.home.homeDirectory}/.config/hypr/wallpaper.png";
 in
@@ -30,11 +30,18 @@ in
       ];
 
       # Set Monitors
-      monitor = [
-        "eDP-1, 1920x1080@60, 0x0, 1, cm, auto"
-        "DP-2, 1920x1080@60, 1920x0, 1, cm, auto"
-        "DP-4, 1920x1080@60, 3840x0, 1, cm, auto"
-      ];
+      monitor =
+        if device == "laptop" then
+          [
+            "eDP-1, 1920x1080@60, 0x0, 1, cm, auto"
+            "DP-2, 1920x1080@60, 1920x0, 1, cm, auto"
+            "DP-4, 1920x1080@60, 3840x0, 1, cm, auto"
+          ]
+        else
+          [
+            "DP-2, 1920x1080@60, 0x0, 1, cm, auto"
+            "DP-4, 1920x1080@60, 1920x0, 1, cm, auto"
+          ];
 
       # Application Environment variables
       "$terminal" = "kitty";
@@ -101,20 +108,37 @@ in
         ];
       };
 
-      workspace = [
-        "w[tv1], gapsout:0, gapsin:0"
-        "f[1], gapsout:0, gapsin:0"
-        #  Set workspaces for each monitor
-        "1, monitor:eDP-1, default:true, persistent:true"
-        "2, monitor:eDP-1, persistent:true"
-        "3, monitor:eDP-1, persistent:true"
-        "4, monitor:DP-2, default:true, persistent:true"
-        "5, monitor:DP-2, persistent:true"
-        "6, monitor:DP-2, persistent:true"
-        "7, monitor:DP-4, default:true, persistent:true"
-        "8, monitor:DP-4, persistent:true"
-        "9, monitor:DP-4, persistent:true"
-      ];
+      workspace =
+        if device == "laptop" then
+          [
+            "w[tv1], gapsout:0, gapsin:0"
+            "f[1], gapsout:0, gapsin:0"
+            #  Set workspaces for each monitor
+            "1, monitor:eDP-1, default:true, persistent:true"
+            "2, monitor:eDP-1, persistent:true"
+            "3, monitor:eDP-1, persistent:true"
+            "4, monitor:DP-2, default:true, persistent:true"
+            "5, monitor:DP-2, persistent:true"
+            "6, monitor:DP-2, persistent:true"
+            "7, monitor:DP-4, default:true, persistent:true"
+            "8, monitor:DP-4, persistent:true"
+            "9, monitor:DP-4, persistent:true"
+          ]
+        else
+          [
+            "w[tv1], gapsout:0, gapsin:0"
+            "f[1], gapsout:0, gapsin:0"
+            #  Set workspaces for each monitor
+            "1, monitor:DP-2, default:true, persistent:true"
+            "2, monitor:DP-2, persistent:true"
+            "3, monitor:DP-2, persistent:true"
+            "4, monitor:DP-4, default:true, persistent:true"
+            "5, monitor:DP-4, persistent:true"
+            "6, monitor:DP-4, persistent:true"
+            "7, default:true, persistent:true"
+            "8, persistent:true"
+            "9, persistent:true"
+          ];
 
       windowrule = [
         "bordersize 0, floating:0, onworkspace:w[tv1]"

@@ -4,17 +4,15 @@
 }:
 
 {
-  environment.systemPackages = with pkgs; [
-    pwvucontrol
-    keepassxc
-    mpv
-    qbittorrent
-    qpwgraph
-
-    libreoffice-qt6
-    hunspell
-    hyphenDicts.en-us
-
+  environment.systemPackages = [
+    pkgs.pwvucontrol
+    pkgs.keepassxc
+    pkgs.mpv
+    pkgs.qbittorrent
+    pkgs.qpwgraph
+    pkgs.libreoffice-qt6
+    pkgs.hunspell
+    pkgs.hyphenDicts.en-us
   ];
 
   programs.kdeconnect.enable = true;
