@@ -1,12 +1,16 @@
 {
+  pkgs,
+  millennium,
   ...
 }:
 
 {
+  nixpkgs.overlays = [ millennium.overlays.default ];
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+    package = pkgs.millennium-steam;
     gamescopeSession = {
       enable = true;
     };

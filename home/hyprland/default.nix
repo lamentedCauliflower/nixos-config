@@ -39,8 +39,9 @@ in
           ]
         else
           [
-            "DP-2, 1920x1080@60, 0x0, 1, cm, auto"
-            "DP-4, 1920x1080@60, 1920x0, 1, cm, auto"
+            "HDMI-A-1, 1920x1080@60, 0x0, 1, cm, auto, bitdepth, 8"
+            "DP-5, 1920x1080@60, 1920x0, 1, cm, auto, bitdepth, 8"
+            "DP-3, 1920x1080@60, 3840x0, 1, cm, auto, bitdepth, 8"
           ];
 
       # Application Environment variables
@@ -129,15 +130,15 @@ in
             "w[tv1], gapsout:0, gapsin:0"
             "f[1], gapsout:0, gapsin:0"
             #  Set workspaces for each monitor
-            "1, monitor:DP-2, default:true, persistent:true"
-            "2, monitor:DP-2, persistent:true"
-            "3, monitor:DP-2, persistent:true"
-            "4, monitor:DP-4, default:true, persistent:true"
-            "5, monitor:DP-4, persistent:true"
-            "6, monitor:DP-4, persistent:true"
-            "7, default:true, persistent:true"
-            "8, persistent:true"
-            "9, persistent:true"
+            "1, monitor:HDMI-A-1, default:true, persistent:true"
+            "2, monitor:HDMI-A-1, persistent:true"
+            "3, monitor:HDMI-A-1, persistent:true"
+            "4, monitor:DP-5, default:true, persistent:true"
+            "5, monitor:DP-5, persistent:true"
+            "6, monitor:DP-5, persistent:true"
+            "7, monitor:DP-3,default:true, persistent:true"
+            "8, monitor:DP-3,persistent:true"
+            "9, monitor:DP-3,persistent:true"
           ];
 
       windowrule = [
@@ -152,6 +153,7 @@ in
       windowrulev2 = [
         "monitor DP-2, class:(?i)zed"
         "monitor DP-4, class:(?i)librewolf"
+        "tile, class:steam"
       ];
 
       dwindle = {

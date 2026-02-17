@@ -19,6 +19,10 @@
     opencode = {
       url = "github:anomalyco/opencode/v1.1.53";
     };
+
+    millennium = {
+      url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    };
   };
 
   outputs =
@@ -29,6 +33,7 @@
       stylix,
       nur,
       opencode,
+      millennium,
       ...
     }:
     let

@@ -2,9 +2,9 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
-  pkgs,
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }:
@@ -15,19 +15,37 @@
   ];
 
   boot.initrd.availableKernelModules = [
+    "nvme"
     "xhci_pci"
     "ahci"
-    "nvme"
     "usbhid"
     "usb_storage"
     "sd_mod"
-    "rtsx_pci_sdmmc"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  swapDevices = [ ];
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/79a48e83-ee7a-4e99-896c-f39d3a953f07";
+    fsType = "btrfs";
+    options = [ "subvol=@" ];
+  };
+
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/79a48e83-ee7a-4e99-896c-f39d3a953f07";
+    fsType = "btrfs";
+    options = [ "subvol=@home" ];
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/8473-CADC";
+    fsType = "vfat";
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
+  };
 
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
@@ -51,6 +69,8 @@
     ];
   };
 
+  swapDevices = [ ];
+
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
@@ -59,8 +79,5 @@
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  hardware.opentabletdriver.enable = true;
-
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

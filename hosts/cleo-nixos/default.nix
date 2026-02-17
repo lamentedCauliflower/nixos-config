@@ -10,25 +10,27 @@
     ./hardware-configuration.nix
   ];
 
-  # # Bootloader.
-  # boot.loader = {
-  #   limine = {
-  #     enable = true;
-  #     extraEntries = ''
-  #       /Windows Boot Manager
-  #           comment: Chainload the EFI loader on the second NVMe
-  #           protocol: efi
-  #           path: guid(38d503da-d75e-43e1-ab43-0751700db854):/EFI/Microsoft/Boot/bootmgfw.efi
-  #     '';
-  #   };
-  #   efi = {
-  #     canTouchEfiVariables = true;
-  #   };
+  # Bootloader
+  boot.loader = {
+    limine = {
+      enable = true;
+      extraEntries = ''
+        /Windows Boot Manager
+            comment: Chainload the EFI loader on the second NVMe
+            protocol: efi
+            path: guid(a3d03aeb-5139-44bf-8b82-0e27ee09f133):/EFI/Microsoft/Boot/bootmgfw.efi
+      '';
+      force = true;
+      efiSupport = true;
+    };
+    efi = {
+      canTouchEfiVariables = true;
+    };
+    grub.enable = false;
 
-  # };
+  };
 
   networking.hostName = "cleo-nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
   networking.networkmanager.enable = true;
